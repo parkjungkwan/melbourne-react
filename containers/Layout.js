@@ -1,17 +1,20 @@
 import React from "react";
 import styled from "styled-components";
+import Bmi from "../components/Bmi";
+import Footer from "./Footer";
+import Header from "./Header";
 
 const Layout=()=>{
     return (<div>
         <Table>
             <Tr>
-                <Td></Td>
+                <Td><Header/></Td>
             </Tr>
             <Tr>
-                <Td></Td>
+                <Td><Bmi/></Td>
             </Tr>
             <Tr>
-                <Td></Td>
+                <Td><Footer/></Td>
             </Tr>
         </Table>
     </div>)
