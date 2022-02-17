@@ -1,6 +1,7 @@
 import React from "react";
 import {Link} from 'react-router-dom'
-const Navbar=()=>{ return <div>
+export default function Navbar(){ 
+    return (<div>
     <nav>
     <ul>
       <li><Link to={"/"}>Home</Link></li>
@@ -10,6 +11,5 @@ const Navbar=()=>{ return <div>
       <li><Link to="/login">Login</Link></li>
     </ul>
   </nav>
-</div>
+</div>)
 }
-export default Navbar

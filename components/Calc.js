@@ -1,6 +1,7 @@
 import React from 'react' 
-const Calc =() =>{
-    return <><h1>Calc폼</h1>
+import Layout from '../containers/Layout';
+export default function Calc(){
+    return <Layout><h1>Calc폼</h1>
     <form>
     
     <div>
@@ -15,6 +16,5 @@ const Calc =() =>{
     
     </div>
     </form>
-    </>
+    </Layout>
 }
-export default Calc;
