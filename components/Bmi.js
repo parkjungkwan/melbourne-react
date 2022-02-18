@@ -1,4 +1,4 @@
-import React from 'react' 
+import React, {useState} from 'react' 
 import Layout from '../containers/Layout';
 
 export default function Bmi(){
