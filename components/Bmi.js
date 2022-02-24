@@ -10,18 +10,12 @@ export default function Bmi(){
     const handleChange = (e) => {
         e.preventDefault()
         const {value, name } = e.target;
-        setInputs({
-            ...inputs, [name]: value
-        })
-        alert(`입력한 이름 ${document.getElementById("name").value}`)
-        
-        
+        setInputs({ ...inputs, [name]: value})
     }
     const handleClick = (e) => {
         e.preventDefault()
-        
-        setName(document.getElementById("name").value)
-        alert(` 사용자이름: ${name}`)
+        const bmiRequest = {name, weight, height}
+        alert(` 사용자이름: ${JSON.stringify(bmiRequest)}`)
         /*
         axios.get(`http://localhost:8080/member/bmi/김길동/180.5/80.5`)
             .then((res)=>{
@@ -37,13 +31,13 @@ export default function Bmi(){
     
     <div>
     <label><b>Username</b></label>
-    <input type="text" id="name"  /><br />
+    <input type="text" name="name" onChange={handleChange}/><br />
 
     <label htmlFor=""><b>height</b></label>
-    <input type="text" onChange={handleChange} /><br />
+    <input type="text" name="height" onChange={handleChange} /><br />
 
     <label htmlFor=""><b>weight</b></label>
-    <input type="text" onChange={handleChange} /><br />
+    <input type="text" name="weight" onChange={handleChange} /><br />
     <button onClick={handleClick}>BMI 체크</button>
     </div> 
     </form>
