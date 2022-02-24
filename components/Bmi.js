@@ -9,14 +9,10 @@ export default function Bmi(){
     const getBmi = (e) => {
         e.preventDefault()
         alert(` 버튼 클릭 `)
-        try{
-            axios.get(`http://localhost:8080/member/bmi/홍길동/180.5/80.5`)
+        axios.get(`http://localhost:8080/member/bmi/aaa/180.5/80.5`)
             .then((res)=>{
-                alert(`답장이 도착했습니다 [내용] ${res.data}`)
+                alert(`답장이 도착했습니다 [내용] ${JSON.stringify(res.data)}`)
             })
-        }catch(error){
-            alert(`답장이 도착했습니다`)
-        }
     }
 
 
