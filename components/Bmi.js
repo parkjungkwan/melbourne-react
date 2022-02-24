@@ -4,24 +4,24 @@ import axios  from 'axios';
 import { useLinkClickHandler } from 'react-router-dom';
 export default function Bmi(){
 
-    const [inputs, setInputs] = useState({
-        name: '', height: 0.0, weight: 0.0
-    })
-    const [name, setName] = useState('')
+    const [inputs, setInputs] = useState({})
+    const { name, weight, height } = inputs; // Object  Destructuring
 
     const handleChange = (e) => {
         e.preventDefault()
-        /**const {value, name } = e.target;
+        const {value, name } = e.target;
         setInputs({
             ...inputs, [name]: value
-        })*/
+        })
         alert(`입력한 이름 ${document.getElementById("name").value}`)
-        setName(document.getElementById("name").value)
+        
         
     }
     const handleClick = (e) => {
         e.preventDefault()
-        alert(` 사용자이름: ${inputs["name"]}`)
+        
+        setName(document.getElementById("name").value)
+        alert(` 사용자이름: ${name}`)
         /*
         axios.get(`http://localhost:8080/member/bmi/김길동/180.5/80.5`)
             .then((res)=>{
@@ -37,7 +37,7 @@ export default function Bmi(){
     
     <div>
     <label><b>Username</b></label>
-    <input type="text" id="name" onChange={handleChange} /><br />
+    <input type="text" id="name"  /><br />
 
     <label htmlFor=""><b>height</b></label>
     <input type="text" onChange={handleChange} /><br />
