@@ -1,6 +1,6 @@
 import React, {useState} from 'react' 
 import Layout from '../containers/Layout';
-import axios  from 'axios';
+import {memberBmi} from '../api/index'
 import { useLinkClickHandler } from 'react-router-dom';
 export default function Bmi(){
 
@@ -15,12 +15,12 @@ export default function Bmi(){
     const handleClick = (e) => {
         e.preventDefault()
         const bmiRequest = {name, weight, height}
-        alert(` 사용자이름: ${JSON.stringify(bmiRequest)}`)
-        /*
-        axios.get(`http://localhost:8080/member/bmi/김길동/180.5/80.5`)
-            .then((res)=>{
-                alert(`답장이 도착했습니다 [내용] ${JSON.stringify(res.data)}`)
-            })*/
+        console.log(` 사용자이름: ${JSON.stringify(bmiRequest)}`)
+        memberBmi(bmiRequest)
+        .then( res => {
+            alert(res.data)
+        })
+        .catch( err => console.log(`에러발생 : ${err}`))
     }
 
 
