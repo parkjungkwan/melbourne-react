@@ -1,8 +1,10 @@
 import React,{useState} from 'react' 
+import { memberCalc } from '../api';
 import Layout from '../containers/Layout'
 
 export default function Calc(){
     const [inputs, setInputs] = useState({})
+    const [result, setResult] = useState('')
     const {num1, opcode, num2} = inputs;
 
     const handleChange = (e) => {
@@ -12,9 +14,7 @@ export default function Calc(){
     }
     const handleClick = (e) => {
         e.preventDefault()
-        const calcRequest = {num1, opcode ,num2}
-        alert(`계산기: ${JSON.stringify(calcRequest)}`)
-
+        memberCalc({num1, opcode ,num2}).then(res => setResult(res.data)).catch( err => console.log(`에러발생 : ${err}`))
     }
     return <Layout><h1>Calc폼</h1>
     <form action=""> 
@@ -35,9 +35,9 @@ export default function Calc(){
     <label htmlFor=""><b>num2</b></label>
     <input name="num2" type="text" onChange= {handleChange} /><br />
 
-    <button onClick={handleClick}>계산결과</button>
+    <button onClick={handleClick}>전 송</button>
     </form>
-    <div>결과: !</div>
+    <div>계산결과 : {result}</div>
 
 
     </Layout>

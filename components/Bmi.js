@@ -1,11 +1,10 @@
 import React, {useState} from 'react' 
 import Layout from '../containers/Layout';
 import {memberBmi} from '../api/index'
-import { useLinkClickHandler } from 'react-router-dom';
 export default function Bmi(){
 
     const [inputs, setInputs] = useState({})
-    const { name, weight, height } = inputs; // Object  Destructuring
+    const { name, weight, height } = inputs; 
 
     const handleChange = (e) => {
         e.preventDefault()
